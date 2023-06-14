@@ -5,7 +5,12 @@ import MovieCard from './components/MovieCard.vue'
 <template>
   <header id="main-heading" class="container">
     <h1><a href="/">FLIXX</a></h1>
+
     <nav>
+      <form action="">
+        <input type="text" name="" id="" placeholder="Search..." />
+        <button type="submit">Search</button>
+      </form>
       <a href="/">Movies</a>
       <a href="/">TV Shows</a>
     </nav>
@@ -22,17 +27,6 @@ import MovieCard from './components/MovieCard.vue'
         <MovieCard />
         <MovieCard />
       </div>
-    </section>
-
-    <section id="search">
-      <input type="radio" name="type" id="" value="movies" />
-      <label for=""> Movies</label>
-      <input type="radio" name="type" id="" value="shows" />
-      <label for=""> TV Shows</label>
-
-      <form action="">
-        <input type="text" name="" id="" placeholder="Search..." />
-      </form>
     </section>
   </main>
 </template>
@@ -61,6 +55,30 @@ import MovieCard from './components/MovieCard.vue'
   text-align: center;
 }
 
+header form {
+  padding: 10px;
+}
+
+header form input {
+  width: 70%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px 0 0 8px;
+}
+
+header form button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0 8px 8px 0;
+  color: white;
+  background-color: rgb(41, 147, 98);
+  cursor: pointer;
+}
+
+#search form button:active {
+  border: 1px solid #000000;
+}
+
 #now-playing div h2 {
   text-align: center;
   padding: 30px;
@@ -77,10 +95,17 @@ header {
 }
 
 header h1 a {
-  font-size: 35px;
+  font-size: 40px;
   cursor: pointer;
-  color: #000;
+  color: #fff;
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
   text-decoration: none;
+}
+
+header nav {
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 
 header nav a {

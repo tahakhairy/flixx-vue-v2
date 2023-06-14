@@ -16,6 +16,7 @@
 .card {
   width: 300px;
   height: 400px;
+  color: rgb(198, 198, 198);
   background-color: #3b3b3b;
   padding: 20px;
   display: flex;

@@ -8,8 +8,8 @@
       </a>
     </div>
     <div class="card-body">
-      <p>Fast X</p>
-      <p>Release Date: 2020-6-12</p>
+      <h5>Fast X</h5>
+      <p><small>Release: 2020-6-12</small></p>
     </div>
   </div>
 </template>

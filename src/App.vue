@@ -3,48 +3,48 @@ import MovieShowCard from './components/MovieShowCard.vue'
 </script>
 
 <template>
-  <header id="main-heading" class="container">
-    <h1><a href="/">FLIXX</a></h1>
-
-    <nav>
-      <form action="">
-        <input type="text" name="" id="" placeholder="Search..." />
-        <button type="submit">Search</button>
-      </form>
-      <a href="/">Movies</a>
-      <a href="/">TV Shows</a>
-    </nav>
+  <header id="main-heading">
+    <div class="container">
+      <div class="logo"><a href="/">FLIXX</a></div>
+      <nav>
+        <form action="">
+          <input type="text" name="" id="" placeholder="Search..." />
+          <button type="submit">Search</button>
+        </form>
+        <a href="/">Movies</a>
+        <a href="/">TV Shows</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="container">
-    <section id="now-playing">
-      <div>
-        <h2>Now Playing</h2>
-      </div>
-      <div class="swiper"></div>
-    </section>
+  <section id="now-playing">
+    <div>
+      <h2>Now Playing</h2>
+    </div>
+    <div class="swiper"></div>
+  </section>
 
-    <section id="popular-movies" class="container">
-      <h2>Popular Movies</h2>
-      <div class="grid">
-        <MovieShowCard />
-        <MovieShowCard />
-        <MovieShowCard />
-        <MovieShowCard />
-        <MovieShowCard />
-        <MovieShowCard />
-        <MovieShowCard />
-        <MovieShowCard />
-      </div>
-    </section>
-  </main>
+  <section id="popular-movies" class="container">
+    <h2>Popular Movies</h2>
+    <div class="grid">
+      <MovieShowCard />
+      <MovieShowCard />
+      <MovieShowCard />
+      <MovieShowCard />
+      <MovieShowCard />
+      <MovieShowCard />
+      <MovieShowCard />
+      <MovieShowCard />
+    </div>
+  </section>
 </template>
 
 <style scoped>
 .container {
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 section h2 {
@@ -61,20 +61,26 @@ section h2 {
 }
 
 /* Heading */
-header {
-  height: 80px;
+#main-heading {
+  padding: 15px 0;
+  background-color: #000000c0;
+}
+#main-heading .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #000000c0;
-  padding: 12px;
+  /* padding: 20px 0; */
 }
 
-header h1 a {
-  font-size: 40px;
-  cursor: pointer;
+header .logo {
   color: #fff;
-  -webkit-text-stroke: 1px rgb(0, 0, 0);
+  font-size: 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+a {
+  color: #fff;
   text-decoration: none;
 }
 
@@ -87,7 +93,6 @@ header nav {
 header nav a {
   padding: 12px;
   text-decoration: none;
-  font-size: 20px;
   color: white;
   transition: 0.2s;
   margin: 0 10px;
@@ -108,10 +113,6 @@ header nav a:active {
   padding: 24px;
   background-color: #656565;
   text-align: center;
-}
-
-header form {
-  padding: 10px;
 }
 
 header form input {
@@ -150,7 +151,7 @@ section#now-playing {
 }
 
 /* Popular Movies */
-section#popular-movies {
-  margin-top: 30px;
-}
+/* section#popular-movies {
+  margin: 30px 0;
+} */
 </style>

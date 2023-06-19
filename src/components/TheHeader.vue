@@ -1,0 +1,94 @@
+<script setup></script>
+
+<template>
+  <header id="main-heading">
+    <div class="container">
+      <div class="logo"><a href="/">FLIXX</a></div>
+      <nav>
+        <form action="">
+          <input type="text" name="" id="" placeholder="Search..." />
+          <button type="submit">Search</button>
+        </form>
+        <a href="/">Movies</a>
+        <a href="/">TV Shows</a>
+      </nav>
+    </div>
+  </header>
+</template>
+
+<style scoped>
+/* Heading */
+#main-heading {
+  padding: 15px 0;
+  background-color: #000000c0;
+}
+#main-heading .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 20px 0; */
+}
+
+header .logo {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header nav {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+header nav a {
+  padding: 12px;
+  text-decoration: none;
+  color: white;
+  transition: 0.2s;
+  margin: 0 10px;
+  border-radius: 8px;
+}
+
+header nav a:hover {
+  background-color: #979797;
+}
+
+header nav a:active {
+  background-color: #979797;
+  color: rgb(41, 147, 98);
+}
+
+#search {
+  margin-top: 20px;
+  padding: 24px;
+  background-color: #656565;
+  text-align: center;
+}
+
+header form input {
+  width: 70%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px 0 0 8px;
+}
+
+header form button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0 8px 8px 0;
+  color: white;
+  background-color: rgb(41, 147, 98);
+  cursor: pointer;
+}
+
+#search form button:active {
+  border: 1px solid #000000;
+}
+</style>

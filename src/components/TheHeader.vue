@@ -3,14 +3,14 @@
 <template>
   <header id="main-heading">
     <div class="container">
-      <div class="logo"><a href="/">FLIXX</a></div>
+      <div><router-link class="logo" to="/">FLIXX</router-link></div>
       <nav>
         <form action="">
           <input type="text" name="" id="" placeholder="Search..." />
           <button type="submit">Search</button>
         </form>
-        <a href="/">Movies</a>
-        <a href="/">TV Shows</a>
+        <router-link active-class="active" to="/">Movies</router-link>
+        <router-link active-class="active" to="/tv-shows">TV Shows</router-link>
       </nav>
     </div>
   </header>
@@ -34,10 +34,6 @@ header .logo {
   font-size: 25px;
   font-weight: 700;
   text-transform: uppercase;
-}
-
-a {
-  color: #fff;
   text-decoration: none;
 }
 
@@ -56,12 +52,8 @@ header nav a {
   border-radius: 8px;
 }
 
-header nav a:hover {
-  background-color: #979797;
-}
-
-header nav a:active {
-  background-color: #979797;
+header nav .active {
+  font-weight: bold;
   color: rgb(41, 147, 98);
 }
 

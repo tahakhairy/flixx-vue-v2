@@ -3,9 +3,9 @@
 <template>
   <div class="card">
     <div>
-      <a href="/">
-        <img src="../images/no-image.jpg" />
-      </a>
+      <!-- TODO -->
+      <!-- <router-link to="/show-details"><img src="../images/no-image.jpg" /></router-link> -->
+      <img src="../images/no-image.jpg" />
     </div>
     <div class="card-body">
       <h5>Fast X</h5>

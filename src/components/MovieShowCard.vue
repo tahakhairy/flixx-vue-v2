@@ -8,9 +8,10 @@ const { movie } = toRefs(props)
 <template>
   <div class="card">
     <div>
-      <!-- TODO -->
-      <!-- <router-link to="/show-details"><img src="../images/no-image.jpg" /></router-link> -->
-      <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" />
+      <router-link :to="`/movie-details/${movie.id}`">
+        <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" />
+      </router-link>
+      <!-- <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" /> -->
     </div>
     <div class="card-body">
       <h5>{{ movie.title }}</h5>

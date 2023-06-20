@@ -5,13 +5,9 @@ import MovieShowCard from '@/components/MovieShowCard.vue'
 
 const popularMovies = ref(null)
 
-async function getPopularMovies() {
+onMounted(async () => {
   const { results } = await fetchApiData('movie/popular')
   popularMovies.value = results
-}
-
-onMounted(() => {
-  getPopularMovies()
 })
 </script>
 

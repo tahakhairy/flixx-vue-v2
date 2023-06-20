@@ -1,5 +1,18 @@
 <script setup>
+import { ref, onMounted } from 'vue'
+import fetchApiData from '@/api/api.js'
 import MovieShowCard from '@/components/MovieShowCard.vue'
+
+const popularMovies = ref(null)
+
+async function getPopularMovies() {
+  const { results } = await fetchApiData('movie/popular')
+  popularMovies.value = results
+}
+
+onMounted(() => {
+  getPopularMovies()
+})
 </script>
 
 <template>
@@ -13,10 +26,7 @@ import MovieShowCard from '@/components/MovieShowCard.vue'
   <section id="popular-movies" class="container">
     <h2>Popular Movies</h2>
     <div class="grid">
-      <!-- <MovieShowCard v-for="movie in movies" :key="movie.id" :movie="movie" /> -->
-      <MovieShowCard />
-      <MovieShowCard />
-      <MovieShowCard />
+      <MovieShowCard v-for="movie in popularMovies" :key="movie.id" :movie="movie" />
     </div>
   </section>
 </template>

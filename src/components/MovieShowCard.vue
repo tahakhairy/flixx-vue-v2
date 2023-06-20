@@ -1,15 +1,22 @@
-<script setup></script>
+<script setup>
+import { defineProps, toRefs } from 'vue'
+
+const props = defineProps(['movie'])
+const { movie } = toRefs(props)
+</script>
 
 <template>
   <div class="card">
     <div>
       <!-- TODO -->
       <!-- <router-link to="/show-details"><img src="../images/no-image.jpg" /></router-link> -->
-      <img src="../images/no-image.jpg" />
+      <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" />
     </div>
     <div class="card-body">
-      <h5>Fast X</h5>
-      <p><small>Release: 2020-6-12</small></p>
+      <h5>{{ movie.title }}</h5>
+      <p>
+        <small>Release: {{ movie.release_date }}</small>
+      </p>
     </div>
   </div>
 </template>

@@ -5,10 +5,10 @@
     <div class="container">
       <div><router-link class="logo" to="/">FLIXX</router-link></div>
       <nav>
-        <form action="">
+        <!-- <form action="">
           <input type="text" name="" id="" placeholder="Search..." />
           <button type="submit">Search</button>
-        </form>
+        </form> -->
         <router-link active-class="active" to="/">Movies</router-link>
         <router-link active-class="active" to="/tv-shows">TV Shows</router-link>
       </nav>

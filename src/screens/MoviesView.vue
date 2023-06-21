@@ -22,7 +22,12 @@ onMounted(async () => {
   <section id="popular-movies" class="container">
     <h2>Popular Movies</h2>
     <div class="grid">
-      <MovieShowCard v-for="movie in popularMovies" :key="movie.id" :movie="movie" />
+      <MovieShowCard
+        v-for="movie in popularMovies"
+        :key="movie.id"
+        :movie="movie"
+        :isMovie="true"
+      />
     </div>
   </section>
 </template>

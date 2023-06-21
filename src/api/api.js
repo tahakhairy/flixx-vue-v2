@@ -9,9 +9,7 @@ async function fetchApiData(endpoint) {
   const response = await axios.get(
     `${api.BASE_URL}${endpoint}?api_key=${api.API_KEY}&language=en-US`
   )
-  const data = response.data
-
-  return data
+  return response.data
 }
 
 export default fetchApiData

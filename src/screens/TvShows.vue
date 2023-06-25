@@ -19,7 +19,7 @@ onMounted(async () => {
       <MovieShowCard
         v-for="show in popularShows"
         :key="show.id"
-        :show="show"
+        :res="show"
         :isMovie="false"
       ></MovieShowCard>
     </div>

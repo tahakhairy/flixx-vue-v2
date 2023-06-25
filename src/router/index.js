@@ -16,7 +16,7 @@ const routes = [
     component: TvShows
   },
   {
-    path: '/show-details/',
+    path: '/show-details/:id',
     name: 'show details',
     component: TvShowDetails
   },

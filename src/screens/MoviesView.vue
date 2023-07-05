@@ -3,7 +3,7 @@ import { ref, onMounted, onBeforeMount } from 'vue'
 import { SwiperSlide } from 'swiper/vue'
 import { register } from 'swiper/element/bundle'
 import 'swiper/css'
-import fetchApiData from '@/api/api.js'
+import { fetchApiData } from '@/api/api.js'
 import MovieShowCard from '@/components/MovieShowCard.vue'
 
 // Swiper

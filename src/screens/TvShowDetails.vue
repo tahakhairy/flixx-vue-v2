@@ -1,7 +1,7 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import { ref, onMounted } from 'vue'
-import fetchApiData from '../api/api'
+import { fetchApiData } from '../api/api'
 import TheDetails from '../components/TheDetails.vue'
 
 const route = useRoute()

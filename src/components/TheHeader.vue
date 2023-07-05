@@ -1,16 +1,24 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+
+const query = ref('')
+</script>
 
 <template>
   <header id="main-heading">
     <div class="container">
       <div><router-link class="logo" to="/">FLIXX</router-link></div>
       <nav>
-        <form action="">
-          <input type="text" name="" id="" placeholder="Search..." />
-          <button type="submit">Search</button>
+        <form>
+          <select>
+            <option selected value="movie">Movie</option>
+            <option value="show">TV Show</option>
+          </select>
+          <input type="text" v-model.trim="query" placeholder="Search..." />
+          <button type="button">Search</button>
         </form>
-        <router-link active-class="active" to="/">Movies</router-link>
-        <router-link active-class="active" to="/tv-shows">TV Shows</router-link>
+        <router-link class="link" active-class="active" to="/">Movies</router-link>
+        <router-link class="link" active-class="active" to="/tv-shows">TV Shows</router-link>
       </nav>
     </div>
   </header>
@@ -43,7 +51,11 @@ header nav {
   align-items: center;
 }
 
-header nav a {
+header form {
+  display: flex;
+}
+
+.link {
   padding: 12px;
   text-decoration: none;
   color: white;
@@ -68,7 +80,17 @@ header form input {
   width: 70%;
   padding: 10px 20px;
   border: none;
+}
+
+header form select {
   border-radius: 8px 0 0 8px;
+  padding: 10px 0 10px 10px;
+  border: none;
+}
+
+header form select option {
+  padding: 10px 20px;
+  font-size: 16px;
 }
 
 header form button {

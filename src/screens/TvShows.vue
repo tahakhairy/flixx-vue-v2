@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import fetchApiData from '../api/api'
+import { fetchApiData } from '../api/api'
 import MovieShowCard from '../components/MovieShowCard.vue'
 
 const popularShows = ref(null)

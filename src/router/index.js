@@ -3,6 +3,7 @@ import TvShows from '@/screens/TvShows.vue'
 import MoviesView from '@/screens/MoviesView.vue'
 import TvShowDetails from '@/screens/TvShowDetails.vue'
 import MovieDetails from '@/screens/MovieDetails.vue'
+import SearchView from '@/screens/SearchView.vue'
 
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
     path: '/tv-shows',
     name: 'tvshows',
     component: TvShows
+  },
+  {
+    path: '/search/:term',
+    name: 'search',
+    component: SearchView
   },
   {
     path: '/show-details/:id',

@@ -6,6 +6,7 @@ import 'swiper/css'
 import fetchApiData from '@/api/api.js'
 import MovieShowCard from '@/components/MovieShowCard.vue'
 
+// Swiper
 register()
 
 const popularMovies = ref(null)

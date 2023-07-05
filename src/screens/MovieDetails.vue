@@ -1,117 +1,24 @@
 <script setup>
-import genres from '@/assets/utils.js'
 import { useRoute } from 'vue-router'
 import { ref, onMounted } from 'vue'
 import fetchApiData from '../api/api'
+import TheDetails from '../components/TheDetails.vue'
 
 const route = useRoute()
 const movieId = route.params.id
 const movie = ref({})
-const isHovering = ref('')
-
-function addGenreColor(id) {
-  return genres.find((g) => g.id === id).color
-}
 
 onMounted(async () => {
   const results = await fetchApiData(`movie/${movieId}`)
   movie.value = results
-  console.log(movie.value)
 })
 </script>
 
 <template>
   <!-- Movie Details -->
   <div class="container">
-    <div
-      class="overlay"
-      :style="{
-        backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`
-      }"
-    ></div>
-    <div class="details-top">
-      <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
-      <div>
-        <h2>{{ movie.title }}</h2>
-        <p>{{ movie.vote_average }} / 10</p>
-        <p><strong>Release</strong><br />{{ movie.release_date }}</p>
-        <p>
-          <strong>Overview</strong><br />
-          {{ movie.overview }}
-        </p>
-        <p><strong>Genres</strong></p>
-        <div class="genre">
-          <span
-            v-for="g in movie.genres"
-            :key="g.id"
-            :id="g.id"
-            @mouseover="isHovering = g.id"
-            @mouseleave="isHovering = ''"
-            :style="[
-              isHovering == g.id
-                ? { backgroundColor: addGenreColor(g.id) }
-                : { backgroundColor: '#00000000' }
-            ]"
-            >{{ g.name }}</span
-          >
-        </div>
-      </div>
-    </div>
+    <TheDetails :result="movie" :isMovie="true"></TheDetails>
   </div>
 </template>
 
-<style scoped>
-.details-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 50px 0 30px;
-}
-
-.details-top img {
-  width: 400px;
-  height: 100%;
-  margin-right: 60px;
-  object-fit: cover;
-}
-
-.details-top .genre span {
-  padding: 10px 20px;
-  border: 0.5px solid rgba(255, 255, 255, 0.258);
-  margin: 0 10px;
-  font-size: 14px;
-  border-radius: 10px;
-}
-
-.action {
-  background-color: rgb(113, 22, 22);
-}
-
-.details-top p {
-  margin: 20px 0;
-}
-
-.details-top .btn {
-  margin-top: 20px;
-}
-
-.details-bottom li {
-  margin: 15px 0;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #fff;
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.overlay {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  opacity: 0.22;
-}
-</style>
+<style scoped></style>

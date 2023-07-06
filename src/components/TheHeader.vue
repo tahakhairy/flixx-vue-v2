@@ -1,7 +1,15 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const query = ref('')
+const type = ref('movie')
+
+function search() {
+  router.push(`/search/${type.value}/${query.value}`)
+  query.value = ''
+}
 </script>
 
 <template>
@@ -10,12 +18,12 @@ const query = ref('')
       <div><router-link class="logo" to="/">FLIXX</router-link></div>
       <nav>
         <form>
-          <select>
+          <select v-model="type">
             <option selected value="movie">Movie</option>
-            <option value="show">TV Show</option>
+            <option value="tv">TV Show</option>
           </select>
-          <input type="text" v-model.trim="query" placeholder="Search..." />
-          <button type="button">Search</button>
+          <input type="text" v-model="query" placeholder="Search..." />
+          <button type="button" @click="search">Search</button>
         </form>
         <router-link class="link" active-class="active" to="/">Movies</router-link>
         <router-link class="link" active-class="active" to="/tv-shows">TV Shows</router-link>
@@ -89,7 +97,6 @@ header form select {
 }
 
 header form select option {
-  padding: 10px 20px;
   font-size: 16px;
 }
 

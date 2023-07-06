@@ -17,7 +17,7 @@ onMounted(async () => {
 <template>
   <section class="container">
     <!-- Show Details Output -->
-    <the-details :result="show" :isMovie="false"></the-details>
+    <TheDetails :result="show" :isMovie="false"></TheDetails>
   </section>
 </template>
 

@@ -8,10 +8,8 @@ const { res, isMovie } = toRefs(props)
 <template>
   <div class="card">
     <div>
-      <router-link :to="`/${isMovie ? 'movie' : 'show'}-details/${isMovie ? res.id : res.id}`">
-        <img
-          :src="`https://image.tmdb.org/t/p/w500${isMovie ? res.poster_path : res.poster_path}`"
-        />
+      <router-link :to="`/${isMovie ? 'movie' : 'show'}-details/${res.id}`">
+        <img :src="`https://image.tmdb.org/t/p/w500${res.poster_path}`" />
       </router-link>
     </div>
     <div class="card-body">

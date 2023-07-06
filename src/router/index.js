@@ -17,7 +17,7 @@ const routes = [
     component: TvShows
   },
   {
-    path: '/search/:term',
+    path: '/search/:type/:term',
     name: 'search',
     component: SearchView
   },

@@ -52,6 +52,22 @@ function addGenreColor(id) {
       </div>
     </div>
   </div>
+  <div class="details-bottom">
+    <h2>Movie Info</h2>
+    <ul>
+      <li><span class="text-secondary">Budget:</span> ${{ result.budget }}</li>
+      <li><span class="text-secondary">Revenue:</span> ${{ result.revenue }}</li>
+      <li><span class="text-secondary">Runtime:</span> {{ result.runtime }} minutes</li>
+      <li><span class="text-secondary">Status:</span> {{ result.status }}</li>
+    </ul>
+
+    <h4>Production Companies</h4>
+    <div>
+      <span v-for="company in result.production_companies" :key="company.id">
+        {{ company.name }}
+      </span>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -62,6 +78,14 @@ function addGenreColor(id) {
   margin: 50px 0 30px;
 }
 
+@media (max-width: 700px) {
+  .details-top {
+    display: block;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: #ccc solid 1px;
+  }
+}
 .details-top img {
   width: 400px;
   height: 100%;
@@ -69,10 +93,14 @@ function addGenreColor(id) {
   object-fit: cover;
 }
 
+.details-top .genre {
+  display: flex;
+  flex-wrap: wrap;
+}
 .details-top .genre span {
   padding: 10px 20px;
   border: 0.5px solid rgba(255, 255, 255, 0.258);
-  margin: 0 10px;
+  margin: 10px;
   font-size: 14px;
   border-radius: 10px;
 }
@@ -83,6 +111,17 @@ function addGenreColor(id) {
 
 .details-top .btn {
   margin-top: 20px;
+}
+
+.details-bottom {
+  margin: 40px;
+  padding: 40px;
+}
+
+.details-bottom h2 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 30px;
 }
 
 .details-bottom li {

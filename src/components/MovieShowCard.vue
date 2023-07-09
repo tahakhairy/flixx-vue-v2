@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, toRefs } from 'vue'
+import { toRefs } from 'vue'
 
 const props = defineProps(['res', 'isMovie'])
 const { res, isMovie } = toRefs(props)
@@ -9,7 +9,13 @@ const { res, isMovie } = toRefs(props)
   <div class="card">
     <div>
       <router-link :to="`/${isMovie ? 'movie' : 'show'}-details/${res.id}`">
-        <img :src="`https://image.tmdb.org/t/p/w500${res.poster_path}`" />
+        <img
+          :src="
+            res.poster_path !== null
+              ? `https://image.tmdb.org/t/p/w500${res.poster_path}`
+              : '../src/images/no-image.jpg'
+          "
+        />
       </router-link>
     </div>
     <div class="card-body">
@@ -23,6 +29,7 @@ const { res, isMovie } = toRefs(props)
 
 <style scoped>
 .card {
+  border-radius: 4px;
   background: #04376b;
   padding: 5px;
 }

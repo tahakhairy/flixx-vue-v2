@@ -2,8 +2,8 @@
 import genres from '@/assets/utils.js'
 import { ref, defineProps, toRefs } from 'vue'
 
-const props = defineProps(['result', 'isMovie'])
-const { result, isMovie } = toRefs(props)
+const props = defineProps(['result', 'isMovie', 'cast'])
+const { result, cast, isMovie } = toRefs(props)
 
 const isHovering = ref('')
 
@@ -53,6 +53,22 @@ function addGenreColor(id) {
     </div>
   </div>
   <div class="details-bottom">
+    <h2>Cast</h2>
+    <div class="cast">
+      <div class="cast-card" v-for="c in cast" :key="c.id">
+        <img
+          :src="
+            c.profile_path !== null
+              ? `https://image.tmdb.org/t/p/w500${c.profile_path}`
+              : '../src/images/no-image.jpg'
+          "
+          alt=""
+        />
+        <p>{{ c.name }}</p>
+        <span>{{ c.character }}</span>
+      </div>
+    </div>
+
     <h2>Movie Info</h2>
     <ul>
       <li><span class="text-secondary">Budget:</span> ${{ result.budget }}</li>
@@ -64,7 +80,7 @@ function addGenreColor(id) {
     <h4>Production Companies</h4>
     <div>
       <span v-for="company in result.production_companies" :key="company.id">
-        {{ company.name }}
+        {{ company.name }},
       </span>
     </div>
   </div>
@@ -131,6 +147,31 @@ function addGenreColor(id) {
   border-color: rgba(255, 255, 255, 0.1);
 }
 
+.cast {
+  display: flex;
+  flex-wrap: nowrap;
+  box-sizing: content-box;
+  flex-direction: row;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.cast .cast-card {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  width: 200px;
+  flex-shrink: 0;
+  height: fit-content;
+  background-color: #04376b;
+}
+
+.cast-card img {
+  width: 100%;
+}
+
+.cast-card p {
+  font-weight: bold;
+}
 .overlay {
   background-size: cover;
   background-position: center;

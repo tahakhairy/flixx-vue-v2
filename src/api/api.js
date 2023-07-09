@@ -12,9 +12,9 @@ export async function fetchApiData(endpoint) {
   return response.data
 }
 
-export async function searchApiData(type, query) {
+export async function searchApiData(type, query, page) {
   const response = await axios.get(
-    `${api.BASE_URL}search/${type}?api_key=${api.API_KEY}&language=en-US&query=${query}&page=1`
+    `${api.BASE_URL}search/${type}?api_key=${api.API_KEY}&language=en-US&query=${query}&page=${page}}`
   )
   return response.data
 }

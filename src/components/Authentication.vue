@@ -1,16 +1,24 @@
 <template>
-  <div class="modal" :class="authStore.hiddenClass">
-    <div class="card">
-      <div class="card-header">
-        <h2>Your Account</h2>
-        <span @click="closeAuthModal"><font-awesome-icon icon="fa-solid fa-xmark" /> </span>
+  <transition name="fade">
+    <div class="modal" v-if="authStore.isModalOpen">
+      <div class="card">
+        <div class="card-header">
+          <h2>Your Account</h2>
+          <span @click="closeAuthModal"><font-awesome-icon icon="fa-solid fa-xmark" /> </span>
+        </div>
+
+        <transition name="fade" mode="out-in" appear>
+          <keep-alive>
+            <login-form
+              v-if="authStore.currentForm === 'login'"
+              :isCurrent="authStore.currentForm"
+            />
+            <signup-form v-else :is-current="authStore.currentForm" />
+          </keep-alive>
+        </transition>
       </div>
-
-      <login-form :isCurrent="authStore.currentForm"></login-form>
-
-      <signup-form :isCurrent="authStore.currentForm"></signup-form>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script setup>
@@ -40,7 +48,7 @@ function closeAuthModal() {
 }
 
 .modal .card {
-  min-width: 36%;
+  min-width: 33%;
   background-color: black;
   border-radius: 1rem;
   padding: 1.5rem 2rem;
@@ -71,5 +79,22 @@ function closeAuthModal() {
 
 .hidden {
   display: none;
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  transition: all 0.2s linear;
+}
+
+.fade-enter-to {
+  opacity: 100%;
+}
+
+.fade-leave-to {
+  transition: all 0.2s linear;
+  opacity: 0;
 }
 </style>

@@ -51,6 +51,7 @@ input {
   font-size: 1.1rem;
   border: none;
   outline: 2px solid #299362;
+  background-color: #141414;
   border-radius: 4px;
   margin-bottom: 0.7rem;
 }
@@ -67,11 +68,16 @@ button {
   background-color: #299362;
   font-size: 1rem;
   font-weight: bold;
-  color: white;
+  color: #141414;
   cursor: pointer;
   margin: 1rem auto;
+  transition: all 0.2s ease;
 }
 
+button:hover {
+  background-color: #1f704a;
+  color: #d6d6d6;
+}
 .log-in {
   text-align: center;
   font-size: 0.9rem;

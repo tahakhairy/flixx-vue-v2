@@ -5,7 +5,7 @@
     <input type="email" placeholder="Email" />
     <label for="password">Password</label>
     <input type="password" placeholder="Password" />
-    <button @click.prevent="">Login</button>
+    <button type="submit">Login</button>
     <div class="sign-up">
       <span>Don't have an account? </span>
       <span @click="openSignupForm"> Sign Up</span>
@@ -39,6 +39,7 @@ form {
 label {
   font-size: 1.1rem;
   margin-bottom: 0.2rem;
+  margin-top: 1rem;
 }
 
 input {
@@ -48,7 +49,7 @@ input {
   outline: 2.5px solid #299362;
   background-color: #141414;
   border-radius: 4px;
-  margin-bottom: 0.7rem;
+  color: #d6d6d6;
 }
 
 input:focus {

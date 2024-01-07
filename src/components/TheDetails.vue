@@ -162,7 +162,7 @@ function addGenreColor(id) {
   width: 200px;
   flex-shrink: 0;
   height: fit-content;
-  background-color: #04376b;
+  background-color: #299362;
 }
 
 .cast-card img {

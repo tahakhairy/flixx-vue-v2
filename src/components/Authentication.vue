@@ -4,17 +4,14 @@
       <div class="card">
         <div class="card-header">
           <h2>Your Account</h2>
-          <span @click="closeAuthModal"><font-awesome-icon icon="fa-solid fa-xmark" /> </span>
+          <span @click="closeAuthModal">
+            <font-awesome-icon icon="fa-solid fa-xmark" />
+          </span>
         </div>
 
         <transition name="fade" mode="out-in" appear>
-          <keep-alive>
-            <login-form
-              v-if="authStore.currentForm === 'login'"
-              :isCurrent="authStore.currentForm"
-            />
-            <signup-form v-else :is-current="authStore.currentForm" />
-          </keep-alive>
+          <login-form v-if="authStore.currentForm === 'login'" :isCurrent="authStore.currentForm" />
+          <signup-form v-else :is-current="authStore.currentForm" />
         </transition>
       </div>
     </div>
@@ -37,6 +34,7 @@ function closeAuthModal() {
 
 <style scoped>
 .modal {
+  overflow-y: auto;
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -52,6 +50,7 @@ function closeAuthModal() {
   background-color: black;
   border-radius: 1rem;
   padding: 1.5rem 2rem;
+  margin: 2rem 0;
 }
 
 .modal .card .card-header {

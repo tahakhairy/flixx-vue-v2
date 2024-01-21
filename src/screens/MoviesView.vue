@@ -1,35 +1,3 @@
-<script setup>
-import { ref, onMounted, onBeforeMount } from 'vue'
-import { SwiperSlide } from 'swiper/vue'
-import { register } from 'swiper/element/bundle'
-import 'swiper/css'
-import { fetchApiData } from '@/api/api.js'
-import MovieShowCard from '@/components/MovieShowCard.vue'
-
-// Swiper
-register()
-
-const popularMovies = ref(null)
-const nowPlaying = ref(null)
-
-onMounted(async () => {
-  const { results } = await fetchApiData('movie/popular')
-  popularMovies.value = results
-})
-
-onBeforeMount(async () => {
-  const { results } = await fetchApiData('movie/now_playing')
-  nowPlaying.value = results
-})
-
-const onSwiper = (swiper) => {
-  console.log(swiper)
-}
-const onSlideChange = () => {
-  console.log('slide change')
-}
-</script>
-
 <template>
   <section id="now-playing">
     <div>
@@ -78,6 +46,39 @@ const onSlideChange = () => {
     </div>
   </section>
 </template>
+
+<script setup>
+import { ref, onMounted, onBeforeMount } from 'vue'
+import { SwiperSlide } from 'swiper/vue'
+
+import { register } from 'swiper/element/bundle'
+import 'swiper/css'
+import { fetchApiData } from '@/api/api.js'
+import MovieShowCard from '@/components/MovieShowCard.vue'
+
+// Swiper
+register()
+
+const popularMovies = ref(null)
+const nowPlaying = ref(null)
+
+onMounted(async () => {
+  const { results } = await fetchApiData('movie/popular')
+  popularMovies.value = results
+})
+
+onBeforeMount(async () => {
+  const { results } = await fetchApiData('movie/now_playing')
+  nowPlaying.value = results
+})
+
+const onSwiper = (swiper) => {
+  console.log(swiper)
+}
+const onSlideChange = () => {
+  console.log('slide change')
+}
+</script>
 
 <style scoped>
 /* Now Playing */

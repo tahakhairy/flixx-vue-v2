@@ -1,17 +1,3 @@
-<script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
-const query = ref('')
-const type = ref('movie')
-
-function search() {
-  router.push(`/search/${type.value}/${query.value}`)
-  query.value = ''
-}
-</script>
-
 <template>
   <header id="main-heading">
     <div class="container">
@@ -27,10 +13,35 @@ function search() {
         </form>
         <router-link class="link" active-class="active" to="/">Movies</router-link>
         <router-link class="link" active-class="active" to="/tv-shows">TV Shows</router-link>
+        <div class="user-icon" @click="openAuthModal">
+          <font-awesome-icon icon="fa-solid fa-user" />
+        </div>
       </nav>
     </div>
   </header>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '../stores/Auth'
+
+const authStore = useAuthStore()
+const router = useRouter()
+const query = ref('')
+const type = ref('movie')
+
+function search() {
+  router.push(`/search/${type.value}/${query.value}`)
+  query.value = ''
+}
+
+function openAuthModal() {
+  authStore.$patch({
+    isModalOpen: true
+  })
+}
+</script>
 
 <style scoped>
 /* Heading */
@@ -74,7 +85,7 @@ header form {
 
 header nav .active {
   font-weight: bold;
-  color: rgb(41, 147, 98);
+  color: #299362;
 }
 
 #search {
@@ -111,5 +122,21 @@ header form button {
 
 #search form button:active {
   border: 1px solid #000000;
+}
+
+.user-icon {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.user-icon:hover {
+  border: 2px solid rgb(41, 147, 98);
 }
 </style>
